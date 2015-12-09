@@ -9,8 +9,7 @@ in the future.
 (c) 2012 Continuum Analytics, Inc. / http://continuum.io
 
 """
-import os
-from os.path import exists, isdir, isfile, islink, join
+from os.path import join
 import subprocess
 import sys
 
@@ -31,6 +30,7 @@ def create_test_files(m, tmp_dir):
     shell_files = create_shell_files(tmp_dir, m)
 
     return py_files, pl_files, shell_files
+
 
 def run_tests(m, env, tmp_dir, py_files, pl_files, shell_files):
     if py_files:
