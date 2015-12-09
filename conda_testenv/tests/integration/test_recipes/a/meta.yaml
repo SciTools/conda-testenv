@@ -1,0 +1,13 @@
+package:
+    name: a
+    version: 1.2
+requirements:
+    build:
+        - python
+    run:
+        - python
+test:
+    imports:
+        - sys
+    commands:
+        - python -c "import sys; print(sys.executable); print('Success recipe a')"

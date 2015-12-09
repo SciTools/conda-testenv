@@ -1,0 +1,15 @@
+package:
+    name: b
+    version: 1.2
+
+requirements:
+    build:
+        - python
+    run:
+        - python
+test:
+    imports:
+        - b_pkg
+    commands:
+        - python -c "import sys; print(sys.executable); print('Success recipe b')"
+

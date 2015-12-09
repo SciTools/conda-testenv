@@ -1,0 +1,13 @@
+package:
+    name: c 
+    version: 1.2
+requirements:
+    run:
+        - python
+        - a
+test:
+    imports:
+        - sys
+        - a_pkg
+    commands:
+        - python -c "import sys; print(sys.executable); print('Success recipe c')"

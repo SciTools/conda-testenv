@@ -10,8 +10,7 @@ def main():
     parser.add_argument('-p', dest='prefix')
     args = parser.parse_args()
 
-    prefix = args.prefix
-    test_env.run_env_tests(prefix)
+    test_env.run_env_tests(args.prefix)
 
 
 if __name__ == '__main__':

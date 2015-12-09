@@ -26,8 +26,7 @@ install:
     - mkdir not_the_source_dir && cd not_the_source_dir
 
 script:
-    - nosetests conda_testenv
-
+    - nosetests conda_testenv -m "^[Tt]est"
 
 # We store the files that are downloaded from continuum.io, but not the environments that are created.
 cache:
