@@ -22,12 +22,14 @@ class Test_cli(unittest.TestCase):
 
         recipes_location = os.path.join(os.path.dirname(__file__),
                                         'test_recipes')
+        build_environ = self.environ.copy()
+        build_environ['CONDA_NPY'] = '110'
         subprocess.check_call([conda, 'build',
                                os.path.join(recipes_location, 'a'),
                                os.path.join(recipes_location, 'b'),
                                os.path.join(recipes_location, 'c'),
                                ],
-                              env=self.environ)
+                              env=build_environ)
 
         self.test_prefix = os.path.join(self.tmpdir, 'test_prefix')
         cmd = [conda, 'create', '-p', self.test_prefix, 'a', 'b',
@@ -39,7 +41,9 @@ class Test_cli(unittest.TestCase):
 
     def test(self):
         cmd = ['conda', 'testenv', '-p', self.test_prefix]
+        self.assertNotIn('CONDA_NPY', self.environ)
         output = subprocess.check_output(cmd, env=self.environ)
+        output = output.decode('ascii')
         self.assertIn('Success recipe a', output)
         self.assertIn('Success recipe b', output)
         self.assertIn('hello from b', output)

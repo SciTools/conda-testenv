@@ -5,8 +5,10 @@ package:
 requirements:
     build:
         - python
+        - numpy x.x
     run:
         - python
+        - numpy x.x
 test:
     imports:
         - b_pkg
