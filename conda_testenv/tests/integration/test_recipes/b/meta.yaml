@@ -1,0 +1,17 @@
+package:
+    name: b
+    version: 1.2
+
+requirements:
+    build:
+        - python
+        - numpy x.x
+    run:
+        - python
+        - numpy x.x
+test:
+    imports:
+        - b_pkg
+    commands:
+        - python -c "import sys; print(sys.executable); print('Success recipe b')"
+

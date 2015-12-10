@@ -1,2 +1,3 @@
 include versioneer.py
 include conda_testenv/_version.py
+recursive-include conda_testenv/tests/integration/test_recipes *
